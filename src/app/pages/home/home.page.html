@@ -1,0 +1,389 @@
+<section
+  class="relative overflow-hidden border-b border-line pt-28 md:pt-36"
+  (mousemove)="onPointerMove($event)"
+>
+  <div class="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 spotlight" aria-hidden="true"></div>
+
+  <div class="shell relative pb-14 md:pb-20">
+    <div class="hero-fade flex items-center gap-4">
+      <span class="h-px w-10 bg-accent" aria-hidden="true"></span>
+      <span class="label">{{ content().hero.eyebrow }}</span>
+    </div>
+
+    <h1 class="display display-tight mt-8 text-[clamp(4.25rem,17vw,12.5rem)]">
+      @for (line of content().hero.name; track line; let i = $index) {
+        <span class="block pb-[0.06em]">
+          <span class="hero-line block" [class.text-muted]="i === 1">{{ line }}</span>
+        </span>
+      }
+    </h1>
+
+    <div class="mt-10 grid gap-10 border-t border-line pt-8 md:grid-cols-[1fr_20rem] md:gap-16">
+      <div>
+        <p
+          class="font-mono text-xs uppercase tracking-[0.14em] text-accent-text"
+          class="hero-fade"
+        >
+          {{ content().hero.role }}
+        </p>
+        <p
+          class="mt-4 max-w-xl text-lg leading-relaxed text-muted md:text-xl"
+          class="hero-fade"
+        >
+          {{ content().hero.lede }}
+        </p>
+        <div class="hero-fade mt-8 flex flex-wrap gap-3">
+          @for (cta of content().hero.ctas; track cta.href; let first = $first) {
+            <a
+              class="btn"
+              [class.btn-primary]="first"
+              [class.btn-ghost]="!first"
+              [href]="cta.href"
+              appMagnetic
+            >
+              {{ cta.label }}
+            </a>
+          }
+        </div>
+      </div>
+
+      <aside class="hero-fade sheet p-5">
+        <div class="flex items-center justify-between gap-3">
+          <span class="label">{{ content().hero.specTitle }}</span>
+          <span class="label flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+            {{ content().header.status }}
+          </span>
+        </div>
+        <dl class="mt-5 divide-y divide-line">
+          @for (item of content().hero.spec; track item.label) {
+            <div class="flex items-baseline justify-between gap-3 py-2.5">
+              <dt class="label">{{ item.label }}</dt>
+              <dd class="text-right text-[13px] font-medium">{{ item.value }}</dd>
+            </div>
+          }
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="shell scroll-mt-24 py-16 md:py-24">
+  <app-section-heading
+    [label]="content().work.label"
+    [title]="content().work.title"
+    [intro]="content().work.intro"
+  />
+
+  <article class="mt-12 grid border border-line bg-surface md:grid-cols-[1.15fr_1fr]" appReveal>
+    <div class="flex flex-col p-6 md:p-10">
+      <div class="flex items-center justify-between gap-4">
+        <span class="label">{{ content().work.featured.kicker }}</span>
+        <span class="label">{{ content().work.featured.index }} / 05</span>
+      </div>
+
+      <h3 class="display mt-8 text-5xl md:text-7xl">{{ content().work.featured.title }}</h3>
+      <p class="mt-5 max-w-lg leading-relaxed text-muted">
+        {{ content().work.featured.summary }}
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-1.5">
+        @for (tech of content().work.featured.stack; track tech) {
+          <app-tag [label]="tech" />
+        }
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6">
+        @for (metric of content().work.featured.metrics; track metric.label) {
+          <app-metric [value]="metric.value" [label]="metric.label" />
+        }
+      </div>
+
+      <div class="mt-auto pt-10">
+        <a [routerLink]="content().caseStudies.laNuevaEra.seo.path" class="link-arrow">
+          {{ content().work.featuredCta }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="relative flex min-h-[260px] items-center justify-center border-t border-line bg-[#0b0c10] md:border-l md:border-t-0"
+    >
+      <img
+        [src]="content().work.featured.image"
+        [alt]="content().work.featured.imageAlt"
+        width="720"
+        height="720"
+        loading="eager"
+        decoding="async"
+        class="h-full w-full object-contain p-8 md:p-12"
+      />
+      <span class="label absolute bottom-4 right-4 text-white/35">La Nueva Era · 2025</span>
+    </div>
+  </article>
+
+  <div class="mt-16 flex items-baseline justify-between gap-4 border-t border-line pt-6">
+    <h3 class="label">{{ content().work.allLabel }}</h3>
+    <span class="label">04</span>
+  </div>
+
+  @for (project of content().work.others; track project.slug) {
+    <app-project-card [project]="project" appReveal />
+  }
+</section>
+
+<section id="experience" class="border-y border-line bg-surface py-16 md:py-24">
+  <div class="shell">
+    <app-section-heading
+      [label]="content().experience.label"
+      [title]="content().experience.title"
+      [intro]="content().experience.intro"
+    />
+
+    <ol class="mt-12">
+      @for (job of content().experience.items; track job.company) {
+        <li class="grid gap-4 border-t border-line py-8 md:grid-cols-[14rem_1fr] md:gap-10" appReveal>
+          <div>
+            <p class="label">{{ job.period }}</p>
+            <p class="mt-2 text-sm text-muted">{{ job.context }}</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold tracking-tight md:text-2xl">
+              {{ job.role }}
+              <span class="text-accent-text"> · {{ job.company }}</span>
+            </h3>
+
+            <ul class="mt-4 space-y-2">
+              @for (bullet of job.bullets; track bullet) {
+                <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                  <span class="mt-2.5 h-px w-3 shrink-0 bg-accent" aria-hidden="true"></span>
+                  <span>{{ bullet }}</span>
+                </li>
+              }
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-1.5">
+              @for (tech of job.stack; track tech) {
+                <app-tag [label]="tech" />
+              }
+            </div>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section id="stack" class="shell scroll-mt-24 py-16 md:py-24">
+  <app-section-heading
+    [label]="content().skills.label"
+    [title]="content().skills.title"
+    [intro]="content().skills.intro"
+  />
+
+  <div class="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2">
+    @for (group of content().skills.groups; track group.title) {
+      <div class="bg-bg p-6 md:p-8">
+        <h3 class="label">{{ group.title }}</h3>
+        <ul class="mt-4 divide-y divide-line">
+          @for (item of group.items; track item.name) {
+            <li class="flex items-baseline justify-between gap-4 py-3">
+              <span class="text-sm font-medium">{{ item.name }}</span>
+              <span class="label text-right text-[10px]">{{ item.evidence }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
+
+<section id="about" class="border-y border-line bg-surface py-16 md:py-24">
+  <div class="shell">
+    <app-section-heading [label]="content().about.label" [title]="content().about.title" />
+
+    <div class="mt-12 grid gap-12 md:grid-cols-[1fr_20rem] md:gap-16">
+      <div>
+        <div class="max-w-2xl space-y-5 text-base leading-relaxed text-muted md:text-lg">
+          @for (paragraph of content().about.paragraphs; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        </div>
+
+        <div class="mt-12 grid gap-10 sm:grid-cols-2">
+          <div>
+            <h3 class="label">{{ content().about.educationTitle }}</h3>
+            <ul class="mt-4 space-y-4">
+              @for (item of content().about.education; track item.title) {
+                <li class="border-t border-line pt-3">
+                  <span class="label">{{ item.period }}</span>
+                  <p class="mt-1 text-sm font-medium">{{ item.title }}</p>
+                  <p class="text-sm text-muted">
+                    {{ item.place }}@if (item.note) { · {{ item.note }} }
+                  </p>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="label">{{ content().about.coursesTitle }}</h3>
+            <ul class="mt-4 space-y-2">
+              @for (course of content().about.courses; track course) {
+                <li class="flex gap-3 text-sm text-muted">
+                  <span class="mt-2.5 h-px w-3 shrink-0 bg-accent" aria-hidden="true"></span>
+                  {{ course }}
+                </li>
+              }
+            </ul>
+
+            <h3 class="label mt-10">{{ content().about.languagesTitle }}</h3>
+            <ul class="mt-4 space-y-2">
+              @for (language of content().about.languages; track language.name) {
+                <li class="flex items-baseline justify-between gap-4 border-t border-line pt-2 text-sm">
+                  <span class="font-medium">{{ language.name }}</span>
+                  <span class="text-right text-muted">{{ language.level }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <figure class="relative">
+        <div class="absolute -left-3 -top-3 h-full w-full border border-line" aria-hidden="true"></div>
+        <img
+          src="/images/eduardo.webp"
+          [alt]="content().about.photoAlt"
+          width="800"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+          class="relative aspect-[4/5] w-full object-cover"
+        />
+        <figcaption class="label mt-3 flex items-center justify-between">
+          <span>Marbella · 2026</span>
+          <span class="text-accent-text">ES</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="shell scroll-mt-24 py-16 md:py-24">
+  <app-section-heading [label]="content().contact.label" [title]="content().contact.title" />
+
+  <div class="mt-12 grid gap-12 md:grid-cols-[1fr_1.1fr] md:gap-16">
+    <div>
+      <p class="max-w-md text-lg leading-relaxed text-muted">{{ content().contact.text }}</p>
+
+      <ul class="mt-8 divide-y divide-line border-y border-line">
+        @for (link of content().contact.direct; track link.href) {
+          <li>
+            <a
+              [href]="link.href"
+              [attr.target]="link.external ? '_blank' : null"
+              [attr.rel]="link.external ? 'noopener noreferrer' : null"
+              class="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-accent-text"
+            >
+              <span class="text-sm">{{ link.label }}</span>
+              <span
+                class="font-mono text-xs text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+                >↗</span
+              >
+            </a>
+          </li>
+        }
+      </ul>
+
+      <p class="label mt-8">{{ content().header.status }}</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="sheet p-6 md:p-8" novalidate>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="flex flex-col gap-2">
+          <span class="label">{{ content().contact.form.name }}</span>
+          <input
+            type="text"
+            formControlName="name"
+            class="field"
+            autocomplete="name"
+            [placeholder]="content().contact.form.namePlaceholder"
+            [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
+          />
+          @if (form.controls.name.touched && form.controls.name.invalid) {
+            <span class="field-error">{{ content().contact.form.required }}</span>
+          }
+        </label>
+
+        <label class="flex flex-col gap-2">
+          <span class="label">{{ content().contact.form.email }}</span>
+          <input
+            type="email"
+            formControlName="email"
+            class="field"
+            autocomplete="email"
+            [placeholder]="content().contact.form.emailPlaceholder"
+            [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+          />
+          @if (form.controls.email.touched && form.controls.email.invalid) {
+            <span class="field-error">{{ content().contact.form.required }}</span>
+          }
+        </label>
+      </div>
+
+      <label class="mt-5 flex flex-col gap-2">
+        <span class="label">{{ content().contact.form.message }}</span>
+        <textarea
+          formControlName="message"
+          rows="5"
+          class="field resize-y"
+          [placeholder]="content().contact.form.messagePlaceholder"
+          [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
+        ></textarea>
+        @if (form.controls.message.touched && form.controls.message.invalid) {
+          <span class="field-error">{{ content().contact.form.required }}</span>
+        }
+      </label>
+
+      <div class="sr-only" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <label class="mt-5 flex items-start gap-3 text-xs leading-relaxed text-muted">
+        <input
+          type="checkbox"
+          formControlName="consent"
+          class="mt-0.5 h-4 w-4 shrink-0 accent-[var(--accent)]"
+        />
+        <span>
+          {{ content().contact.form.privacyPrefix }}
+          <a [href]="content().meta.privacy.path" class="underline hover:text-ink">{{
+            content().contact.form.privacyLink
+          }}</a
+          >.
+        </span>
+      </label>
+      @if (form.controls.consent.touched && form.controls.consent.invalid) {
+        <span class="field-error mt-2 block">{{ content().contact.form.required }}</span>
+      }
+
+      <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto" [disabled]="status() === 'sending'">
+        {{ status() === 'sending' ? content().contact.form.sending : content().contact.form.submit }}
+      </button>
+
+      <p aria-live="polite" class="mt-4 min-h-5 text-sm">
+        @if (status() === 'success') {
+          <span class="text-accent-text">{{ content().contact.form.success }}</span>
+        } @else if (status() === 'error') {
+          <span class="text-accent-text">{{ content().contact.form.error }}</span>
+        }
+      </p>
+    </form>
+  </div>
+</section>

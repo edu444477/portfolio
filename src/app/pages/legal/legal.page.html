@@ -1,0 +1,29 @@
+<article class="pt-16">
+  <header class="border-b border-line">
+    <div class="shell py-14 md:py-20">
+      <p class="label">{{ page().kicker }}</p>
+      <h1 class="display mt-4 text-5xl md:text-7xl">{{ page().title }}</h1>
+      <p class="label mt-6">{{ page().updated }}</p>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{{ page().intro }}</p>
+    </div>
+  </header>
+
+  <div class="shell py-12 md:py-16">
+    <div class="prose-site">
+      @for (section of page().sections; track section.title) {
+        <section>
+          <h2>{{ section.title }}</h2>
+          @for (paragraph of section.paragraphs; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        </section>
+      }
+
+      <p class="mt-10">
+        <a [href]="content().lang === 'en' ? '/en' : '/'" class="link-arrow">
+          {{ content().notFound.cta.label }}
+        </a>
+      </p>
+    </div>
+  </div>
+</article>

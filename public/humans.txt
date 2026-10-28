@@ -1,0 +1,12 @@
+/* EQUIPO */
+  Eduardo Orellana Pomares — Diseño y desarrollo
+
+/* CONTACTO */
+  Email: eduardoorellanapomares@gmail.com
+  GitHub: https://github.com/edu444477
+  LinkedIn: https://www.linkedin.com/in/eduardoorellanapomares/
+
+/* SITIO */
+  Angular 22 · Tailwind CSS 4 · GSAP · Vercel
+  Español / English · Claro / Oscuro
+  Última actualización: 2026-10-27
