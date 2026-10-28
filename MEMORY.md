@@ -6,7 +6,10 @@
 - Contenido ES/EN tipado y unificado; tests de paridad.
 - Tests: 12 unitarios (Vitest) y 18 E2E (Playwright, incluye axe).
 - Lighthouse local sobre build comprimido: 93 rendimiento, 100 accesibilidad, 100 buenas prácticas, 100 SEO.
-- Pendiente: deploy en Vercel, variable `WEB3FORMS_ACCESS_KEY`, limpieza del repo de La Nueva Era y perfil de GitHub.
+- Repo público: `https://github.com/edu444477/portfolio`.
+- Deploy en producción: `https://portfolio-sooty-zeta-11.vercel.app` (proyecto `portfolio`, plan hobby).
+- `/api/contact` responde en producción: `GET` → 405, `POST` inválido → 400, `POST` válido → 500 `not_configured` hasta que exista la clave.
+- Pendiente: `WEB3FORMS_ACCESS_KEY`, dominio `eduardoorellana.vercel.app`, limpieza del repo de La Nueva Era y perfil de GitHub.
 
 ## Decisiones
 - Angular standalone + signals + zoneless + `outputMode: static`.
@@ -14,6 +17,7 @@
 - Intro del hero en CSS; GSAP solo se carga al hacer scroll (fuera del camino crítico).
 - Contenido en TypeScript; sin CMS.
 - Formulario: `/api/contact` en Vercel → Web3Forms (clave en entorno).
+- La función usa la firma `fetch` de Vercel (`export function GET/POST` que devuelven `Response`) y el repo declara `"type": "module"`; con `export default (req, res)` el runtime `nodejs24.x` cargaba el `.js` como CommonJS y fallaba.
 - Español en `/`, inglés en `/en`; rutas de proyecto traducidas.
 - Inglés publicado como “técnico (lectura y escritura)”, sin niveles inventados.
 - La Nueva Era es TFG, no experiencia de empresa. Angular es proyecto propio.
@@ -26,7 +30,7 @@
 - El aviso legal no incluye NIF. Confirmar si hace falta.
 
 ## Próximo
-1. Crear repo público `portfolio` y hacer push.
-2. Importar en Vercel y definir `WEB3FORMS_ACCESS_KEY`.
-3. Probar el formulario en producción.
-4. Limpiar `LaNuevaEra-Flask-React-App` y actualizar perfil de GitHub.
+1. Crear `WEB3FORMS_ACCESS_KEY` en web3forms.com y añadirla en Vercel (Production y Preview).
+2. Probar un envío real desde el formulario y comprobar el correo recibido.
+3. Cambiar el usuario de Vercel a `eduardoorellana` y asignar `eduardoorellana.vercel.app`; actualizar `SITE_URL`, sitemap, robots, README y este archivo.
+4. Limpiar `LaNuevaEra-Flask-React-App` y actualizar perfil de GitHub y repos fijados.
