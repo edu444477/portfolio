@@ -22,7 +22,7 @@ Construido con Angular 22, Tailwind CSS 4 y GSAP, con prerender estático y desp
 |---|---|
 | Framework | Angular 22 standalone, signals, zoneless, `outputMode: "static"` |
 | Estilos | Tailwind CSS 4 con tokens CSS-first |
-| Animación | GSAP 3 + ScrollTrigger, carga diferida |
+| Animación | GSAP 3 con carga diferida; el revelado en scroll usa IntersectionObserver |
 | Tipografía | Archivo Variable, Inter Variable y JetBrains Mono (autoalojadas) |
 | Formulario | Vercel Function (`api/contact.ts`) → Web3Forms |
 | Tests | Vitest (unidad) y Playwright (E2E) |
@@ -48,6 +48,7 @@ src/app/
 ├─ pages/        # home, caso de estudio, legal, 404
 └─ shared/       # directivas y componentes de UI
 api/contact.ts   # función serverless del formulario
+scripts/         # postbuild y generación del CV público
 docs/            # brief de contenido, sistema de diseño, constitución
 specs/           # especificación, plan y tareas
 ```
@@ -59,6 +60,7 @@ specs/           # especificación, plan y tareas
 - **GSAP fuera del bundle inicial.** Se importa dinámicamente solo en el navegador y se desactiva con `prefers-reduced-motion`.
 - **Sin cookies ni analítica.** Solo se guarda la preferencia de tema en `localStorage`.
 - **Contenido verificable.** Las métricas del TFG (18 endpoints, 12 tablas, 10 juegos, 5 categorías) se midieron sobre la API real. No se afirman tests que no existen.
+- **CV sin datos de contacto sensibles.** El PDF publicado se genera con `scripts/cv/rebuild-cv.py` a partir del CV original (privado): conserva el diseño y quita el teléfono, dejando email y ubicación.
 
 ## Variables de entorno
 

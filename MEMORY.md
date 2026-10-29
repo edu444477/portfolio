@@ -23,11 +23,11 @@
 - La Nueva Era es TFG, no experiencia de empresa. Angular es proyecto propio.
 - Métricas de La Nueva Era verificadas: 18 endpoints, 12 tablas, 10 juegos, 5 categorías, 12 productos. 0 tests.
 - TAW y A-Safe se muestran con nombre, enlaces y capturas: permiso confirmado y sin NDA.
+- El CV público se genera con `scripts/cv/rebuild-cv.py` desde `CV_2026.pdf` (privado): mismo diseño, sin teléfono, con email y ubicación.
 
 ## Riesgos
 - El repo público de La Nueva Era expone credenciales de MySQL en el historial. Hay que rotar la contraseña en PythonAnywhere.
-- El CV descargable incluye teléfono; decidir si se publica así o se genera una versión sin él.
-- El aviso legal no incluye NIF. Confirmar si hace falta.
+- El aviso legal no incluye NIF: se ha decidido dejarlo fuera porque el sitio no vende nada.
 
 ## Próximo
 1. Crear `WEB3FORMS_ACCESS_KEY` en web3forms.com y añadirla en Vercel (Production y Preview).
