@@ -32,5 +32,13 @@
 ## Próximo
 1. Crear `WEB3FORMS_ACCESS_KEY` en web3forms.com y añadirla en Vercel (Production y Preview).
 2. Probar un envío real desde el formulario y comprobar el correo recibido.
-3. Cambiar el usuario de Vercel a `eduardoorellana` y asignar `eduardoorellana.vercel.app`; actualizar `SITE_URL`, sitemap, robots, README y este archivo.
-4. Limpiar `LaNuevaEra-Flask-React-App` y actualizar perfil de GitHub y repos fijados.
+3. Cambiar el usuario de Vercel a `eduardoorellana` y asignar `eduardoorellana.vercel.app`; actualizar `SITE_URL`, sitemap, robots, README, perfil de GitHub y este archivo.
+4. Rotar la contraseña de MySQL en PythonAnywhere y definir allí `DATABASE_URL`, `SECRET_KEY` y `JWT_SECRET_KEY`.
+5. Completar el perfil de GitHub: bio, web y ubicación (necesita el scope `user`: `gh auth refresh -h github.com -s user`).
+6. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
+
+## Hecho (30 oct 2026)
+- `/api/contact` arreglada: `"type": "module"` + handlers `GET/POST` con firma `fetch`. Verificado en producción (405/400/500 `not_configured`).
+- CV público regenerado sin teléfono con `scripts/cv/rebuild-cv.py`; misma ruta de descarga.
+- `LaNuevaEra-Flask-React-App`: secretos movidos a variables de entorno, `.gitignore`, `requirements.txt`, `.env.example`, README corregido (URL de clonado y APK) y 54 archivos generados fuera del control de versiones.
+- Perfil `edu444477`: README reescrito con proyectos, experiencia y stack; topics añadidos al repo de La Nueva Era.
