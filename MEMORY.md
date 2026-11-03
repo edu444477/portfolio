@@ -8,16 +8,15 @@
 - Lighthouse local sobre build comprimido: 93 rendimiento, 100 accesibilidad, 100 buenas prácticas, 100 SEO.
 - Repo público: `https://github.com/edu444477/portfolio`.
 - Deploy en producción: `https://eduardoorellana.vercel.app` (proyecto `portfolio`, cuenta renombrada a `eduardoorellana`, plan hobby).
-- `/api/contact` responde en producción: `GET` → 405, `POST` inválido → 400, `POST` válido → 500 `not_configured` hasta que exista la clave.
-- Pendiente: `WEB3FORMS_ACCESS_KEY` y completar bio/web del perfil de GitHub.
+- Formulario de contacto: Web3Forms desde el navegador (sin función serverless).
+- Pendiente: completar bio/web del perfil de GitHub (cosmético).
 
 ## Decisiones
 - Angular standalone + signals + zoneless + `outputMode: static`.
 - Tailwind 4 con tokens CSS y modo oscuro por clase.
 - Intro del hero en CSS; GSAP solo se carga al hacer scroll (fuera del camino crítico).
 - Contenido en TypeScript; sin CMS.
-- Formulario: `/api/contact` en Vercel → Web3Forms (clave en entorno).
-- La función usa la firma `fetch` de Vercel (`export function GET/POST` que devuelven `Response`) y el repo declara `"type": "module"`; con `export default (req, res)` el runtime `nodejs24.x` cargaba el `.js` como CommonJS y fallaba.
+- Formulario: Web3Forms desde el navegador. Su plan gratuito rechaza el envío desde servidor (403, exige Pro), así que no hay función serverless. La access key es pública y el spam se frena con el honeypot `website` y `botcheck`.
 - Español en `/`, inglés en `/en`; rutas de proyecto traducidas.
 - Inglés publicado como “técnico (lectura y escritura)”, sin niveles inventados.
 - La Nueva Era es TFG, no experiencia de empresa. Angular es proyecto propio.
@@ -30,14 +29,12 @@
 - El aviso legal no incluye NIF: se ha decidido dejarlo fuera porque el sitio no vende nada.
 
 ## Próximo
-1. Crear `WEB3FORMS_ACCESS_KEY` en web3forms.com y añadirla en Vercel (Production y Preview).
-2. Probar un envío real desde el formulario y comprobar el correo recibido.
-4. Rotar la contraseña de MySQL en PythonAnywhere y definir allí `DATABASE_URL`, `SECRET_KEY` y `JWT_SECRET_KEY`.
-5. Completar el perfil de GitHub: bio, web y ubicación (necesita el scope `user`: `gh auth refresh -h github.com -s user`).
-6. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
+1. Probar un envío real desde el formulario y comprobar el correo recibido.
+2. Completar el perfil de GitHub: bio, web y ubicación (necesita el scope `user`: `gh auth refresh -h github.com -s user`).
+3. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
 
 ## Hecho (30 oct 2026)
-- `/api/contact` arreglada: `"type": "module"` + handlers `GET/POST` con firma `fetch`. Verificado en producción (405/400/500 `not_configured`).
+- Formulario migrado a Web3Forms desde el navegador (la función `/api/contact` se eliminó): probado en producción con un navegador real y respuesta 200. Cloudflare bloquea los envíos de navegadores headless con un reto, así que las pruebas E2E no deben enviar el formulario.
 - CV público regenerado sin teléfono con `scripts/cv/rebuild-cv.py`; misma ruta de descarga.
 - `LaNuevaEra-Flask-React-App`: secretos movidos a variables de entorno, `.gitignore`, `requirements.txt`, `.env.example`, README corregido (URL de clonado y APK) y 54 archivos generados fuera del control de versiones.
 - Perfil `edu444477`: README reescrito con proyectos, experiencia y stack; topics añadidos al repo de La Nueva Era.

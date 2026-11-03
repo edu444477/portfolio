@@ -124,7 +124,7 @@ Detectado al clonar el repositorio público. No es cosmético:
 | Estilos | Tailwind CSS 4.3 con tokens CSS-first y componentes propios |
 | Animación | GSAP 3.15 + ScrollTrigger, carga diferida y respeto a `prefers-reduced-motion` |
 | Contenido | TypeScript tipado en `src/content`, sin CMS |
-| Formulario | Vercel Function `/api/contact` con validación, honeypot y rate limit; entrega vía API de Web3Forms con la clave en variable de entorno |
+| Formulario | Web3Forms desde el navegador con validación en cliente y honeypot; el plan gratuito no admite envío desde servidor |
 | Hosting | Vercel, plan gratuito. Cuenta ya creada con `eduardoorellanapomares@gmail.com` |
 | Dominio | Subdominio de Vercel: `eduardoorellana.vercel.app`. Sin pagar nada |
 | Analítica | Ninguna en la v1. Sin banner de cookies |
@@ -173,7 +173,6 @@ portfolio/
 │  ├─ agents/reviewer.md          # QA read-only
 │  ├─ agents/content-editor.md    # copy ES/EN sin inventar
 │  └─ commands/{feature,audit,release}.md
-├─ api/contact.ts
 ├─ src/
 ├─ tests/
 └─ vercel.json
@@ -333,7 +332,7 @@ Barras de porcentaje de skills, emojis en el copy, tarjetas con blur, “Hello, 
 2. Scaffold Angular 22 + Tailwind 4 + GSAP, tokens y componentes base.
 3. Contenido ES/EN con los datos de este brief.
 4. Home, casos de estudio, legal, 404.
-5. `/api/contact`, metadatos, sitemap, `robots.txt`, OG image.
+5. Formulario de contacto, metadatos, sitemap, `robots.txt`, OG image.
 6. Tests, Lighthouse y accesibilidad.
 7. Deploy en Vercel.
 8. Limpieza del repo de La Nueva Era y actualización del perfil de GitHub.

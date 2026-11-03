@@ -5,7 +5,7 @@
 - `@angular/build:application` con `outputMode: "static"` → HTML prerenderizado.
 - Tailwind CSS 4.3 vía `@tailwindcss/postcss`, tokens en `src/styles.css`.
 - GSAP 3.15 + ScrollTrigger con import dinámico.
-- Vercel: estáticos + una función Node en `api/contact.ts`.
+- Vercel: solo estáticos; el formulario llama a Web3Forms desde el navegador.
 - Web3Forms como proveedor de correo (plan gratuito, sin dominio propio).
 
 ## Rutas
@@ -38,11 +38,13 @@ Cada ruta declara su idioma con `languageGuard`, que actualiza `LanguageService`
 - Hero: timeline GSAP con líneas enmascaradas.
 
 ## Formulario
-1. Cliente valida con Reactive Forms.
-2. `POST /api/contact` con JSON.
-3. Función: método, rate limit por IP, honeypot, longitudes, consentimiento.
-4. Envía a Web3Forms con `WEB3FORMS_ACCESS_KEY`.
-5. Devuelve `{ ok: true }` o error controlado.
+1. Cliente valida con Reactive Forms (nombre, email, mensaje y consentimiento).
+2. Honeypot `website`: si llega relleno, se descarta sin llamar a la API.
+3. `POST https://api.web3forms.com/submit` desde el navegador con la access key pública.
+4. `src/app/core/web3forms.ts` interpreta la respuesta y devuelve éxito o error.
+
+No hay función serverless ni rate limit propio: el plan gratuito de Web3Forms solo
+acepta envíos desde el cliente y su filtro antispam cubre el abuso básico.
 
 ## SEO y rendimiento
 - Prerender de las 10 rutas.
@@ -53,7 +55,7 @@ Cada ruta declara su idioma con `languageGuard`, que actualiza `LanguageService`
 ## Despliegue
 - Repo público `edu444477/portfolio`.
 - Vercel: build `npm run build`, output `dist/portfolio/browser`.
-- Variable `WEB3FORMS_ACCESS_KEY` en Production/Preview.
+- Sin variables de entorno: la access key de Web3Forms es pública y vive en el bundle.
 - Dominio `eduardoorellana.vercel.app`.
 
 ## Riesgos

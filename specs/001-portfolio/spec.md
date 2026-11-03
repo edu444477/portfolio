@@ -23,7 +23,7 @@ Publicar un portfolio profesional bilingüe que demuestre experiencia Full Stack
 
 ### Contacto y legal
 - **R11.** El formulario DEBE validar nombre, email, mensaje y consentimiento, y responder con estados de envío, éxito y error.
-- **R12.** El formulario DEBE entregarse mediante `/api/contact` con honeypot y límite de peticiones.
+- **R12.** El formulario DEBE entregarse mediante Web3Forms desde el navegador, con honeypot y validación en cliente.
 - **R13.** DEBE existir política de privacidad y aviso legal en ambos idiomas.
 
 ### Calidad

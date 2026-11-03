@@ -13,14 +13,13 @@ description: Checklist de publicación del portfolio en Vercel. Úsala antes de 
 5. Comprobar que no hay secretos en el diff.
 
 ## Variables de entorno
-- `WEB3FORMS_ACCESS_KEY` en Production y Preview.
-- Nunca en `.env` versionado ni en el cliente.
+- Ninguna. La access key de Web3Forms vive en `src/app/core/web3forms.ts`:
+  es un identificador público de formulario, no una credencial.
 
 ## Configuración
 - Build command: `npm run build`.
 - Output: `dist/portfolio/browser`.
 - Node 22.
-- Función `api/contact.ts` con Node runtime.
 
 ## Después del deploy
 1. Abrir `/`, `/en`, los dos casos y las dos legales.

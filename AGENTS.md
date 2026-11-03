@@ -21,7 +21,7 @@ Portfolio personal de Eduardo Orellana Pomares. Angular 22 standalone con signal
 4. Accesibilidad AA: foco visible, teclado, contraste, `prefers-reduced-motion`.
 5. No añadir dependencias sin justificarlo. GSAP se carga de forma diferida y solo en navegador.
 6. Los tokens visuales viven en `src/styles.css`. No hay colores hardcodeados en componentes salvo casos de marca.
-7. Nada de secretos en el repo. Variables de entorno en Vercel.
+7. Nada de secretos en el repo. Variables de entorno en Vercel. La access key de Web3Forms (`src/app/core/web3forms.ts`) es un identificador público de formulario, no un secreto.
 8. No romper el prerender: todo acceso a `window`, `document` o `localStorage` va protegido con `isPlatformBrowser`.
 
 ## Estructura
@@ -29,7 +29,6 @@ Portfolio personal de Eduardo Orellana Pomares. Angular 22 standalone con signal
 - `src/app/layout` — cabecera y pie.
 - `src/app/shared` — directivas y componentes reutilizables.
 - `src/app/core` — idioma, tema, SEO, guardas y GSAP.
-- `api/contact.ts` — función serverless del formulario.
 - `docs/` y `specs/` — decisiones y especificación.
 
 ## Verificación antes de publicar

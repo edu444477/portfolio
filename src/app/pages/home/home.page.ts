@@ -7,6 +7,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/language.service';
 import { SeoService } from '../../core/seo.service';
+import { sendContactMessage } from '../../core/web3forms';
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { Metric } from '../../shared/ui/metric';
@@ -70,13 +71,9 @@ export class HomePage {
     this.status.set('sending');
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(this.form.getRawValue()),
-      });
+      const sent = await sendContactMessage(this.form.getRawValue());
 
-      if (!response.ok) {
+      if (!sent) {
         throw new Error('Request failed');
       }
 

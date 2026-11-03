@@ -13,7 +13,7 @@ Construido con Angular 22, Tailwind CSS 4 y GSAP, con prerender estático y desp
 - **Dos casos de estudio:** La Nueva Era (TFG con Flask + React) y este mismo portfolio.
 - **Español e inglés** completos, en rutas propias y prerenderizadas.
 - **Tema claro y oscuro** con preferencia del sistema y toggle persistente.
-- **Formulario de contacto** con validación en cliente, honeypot, rate limit y entrega vía Web3Forms desde una función serverless.
+- **Formulario de contacto** con validación en cliente y campo trampa, entregado con Web3Forms desde el navegador.
 - **Privacidad y aviso legal** en los dos idiomas.
 
 ## Stack
@@ -24,7 +24,7 @@ Construido con Angular 22, Tailwind CSS 4 y GSAP, con prerender estático y desp
 | Estilos | Tailwind CSS 4 con tokens CSS-first |
 | Animación | GSAP 3 con carga diferida; el revelado en scroll usa IntersectionObserver |
 | Tipografía | Archivo Variable, Inter Variable y JetBrains Mono (autoalojadas) |
-| Formulario | Vercel Function (`api/contact.ts`) → Web3Forms |
+| Formulario | Web3Forms desde el navegador (plan gratuito) |
 | Tests | Vitest (unidad) y Playwright (E2E) |
 | Hosting | Vercel, plan gratuito |
 
@@ -47,7 +47,6 @@ src/app/
 ├─ layout/       # cabecera y pie
 ├─ pages/        # home, caso de estudio, legal, 404
 └─ shared/       # directivas y componentes de UI
-api/contact.ts   # función serverless del formulario
 scripts/         # postbuild y generación del CV público
 docs/            # brief de contenido, sistema de diseño, constitución
 specs/           # especificación, plan y tareas
@@ -59,16 +58,16 @@ specs/           # especificación, plan y tareas
 - **Prerender estático.** Cada ruta se genera como HTML en build time; Vercel sirve archivos estáticos y el usuario recibe contenido antes de que arranque JavaScript.
 - **GSAP fuera del bundle inicial.** Se importa dinámicamente solo en el navegador y se desactiva con `prefers-reduced-motion`.
 - **Sin cookies ni analítica.** Solo se guarda la preferencia de tema en `localStorage`.
+- **Formulario sin backend propio.** Web3Forms gratis solo acepta envíos desde el cliente, así que el formulario llama a su API directamente y no hay función serverless que mantener.
 - **Contenido verificable.** Las métricas del TFG (18 endpoints, 12 tablas, 10 juegos, 5 categorías) se midieron sobre la API real. No se afirman tests que no existen.
 - **CV sin datos de contacto sensibles.** El PDF publicado se genera con `scripts/cv/rebuild-cv.py` a partir del CV original (privado): conserva el diseño y quita el teléfono, dejando email y ubicación.
 
-## Variables de entorno
+## Formulario de contacto
 
-| Variable | Dónde | Para qué |
-|---|---|---|
-| `WEB3FORMS_ACCESS_KEY` | Vercel (Production y Preview) | Enviar el formulario a Web3Forms |
-
-Copia `.env.example` como `.env.local` para desarrollo. Sin la clave, `/api/contact` responde `500 not_configured`.
+No hay secretos ni variables de entorno: Web3Forms solo admite envíos desde el navegador
+en su plan gratuito (el envío desde servidor exige Pro). La access key está en
+`src/app/core/web3forms.ts`; es un identificador público de formulario, no una
+credencial, y el spam se frena con el campo trampa `website`.
 
 ## Accesibilidad
 

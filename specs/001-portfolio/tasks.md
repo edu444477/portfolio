@@ -15,9 +15,9 @@
 - [x] Imágenes optimizadas, favicon, OG, sitemap y robots.
 
 ## Contacto
-- [x] `api/contact.ts` con validación, honeypot y rate limit.
+- [x] Envío con Web3Forms desde el navegador, validación y honeypot.
 - [x] `vercel.json` con headers, caché y fallback 404.
-- [ ] Variable `WEB3FORMS_ACCESS_KEY`.
+- [x] Access key de Web3Forms en `src/app/core/web3forms.ts`.
 - [ ] Prueba real de envío.
 
 ## Calidad
