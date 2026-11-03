@@ -7,9 +7,9 @@
 - Tests: 12 unitarios (Vitest) y 18 E2E (Playwright, incluye axe).
 - Lighthouse local sobre build comprimido: 93 rendimiento, 100 accesibilidad, 100 buenas prácticas, 100 SEO.
 - Repo público: `https://github.com/edu444477/portfolio`.
-- Deploy en producción: `https://portfolio-sooty-zeta-11.vercel.app` (proyecto `portfolio`, plan hobby).
+- Deploy en producción: `https://eduardoorellana.vercel.app` (proyecto `portfolio`, cuenta renombrada a `eduardoorellana`, plan hobby).
 - `/api/contact` responde en producción: `GET` → 405, `POST` inválido → 400, `POST` válido → 500 `not_configured` hasta que exista la clave.
-- Pendiente: `WEB3FORMS_ACCESS_KEY`, dominio `eduardoorellana.vercel.app`, limpieza del repo de La Nueva Era y perfil de GitHub.
+- Pendiente: `WEB3FORMS_ACCESS_KEY` y completar bio/web del perfil de GitHub.
 
 ## Decisiones
 - Angular standalone + signals + zoneless + `outputMode: static`.
@@ -32,7 +32,6 @@
 ## Próximo
 1. Crear `WEB3FORMS_ACCESS_KEY` en web3forms.com y añadirla en Vercel (Production y Preview).
 2. Probar un envío real desde el formulario y comprobar el correo recibido.
-3. Cambiar el usuario de Vercel a `eduardoorellana` y asignar `eduardoorellana.vercel.app`; actualizar `SITE_URL`, sitemap, robots, README, perfil de GitHub y este archivo.
 4. Rotar la contraseña de MySQL en PythonAnywhere y definir allí `DATABASE_URL`, `SECRET_KEY` y `JWT_SECRET_KEY`.
 5. Completar el perfil de GitHub: bio, web y ubicación (necesita el scope `user`: `gh auth refresh -h github.com -s user`).
 6. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
