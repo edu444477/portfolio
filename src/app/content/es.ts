@@ -66,7 +66,7 @@ export const ES: SiteContent = {
     name: ['Eduardo', 'Orellana'],
     specTitle: 'Ficha técnica',
     role: 'Desarrollador Full Stack',
-    lede: 'Dos años construyendo producto real: apps móviles, frontend, APIs y un asistente de IA. Ahora también Angular y Flask, con proyectos propios que enseño aquí.',
+    lede: 'Más de dos años construyendo aplicaciones web y móviles para entornos empresariales. He trabajado en producto en producción, APIs REST e interfaces modernas, y en un asistente de IA que permite usar la plataforma en lenguaje natural. Me adapto rápido a nuevos contextos técnicos, aprendo de forma continua y cuido la calidad del software.',
     ctas: [
       { label: 'Ver trabajo', href: '#work' },
       { label: 'Hablemos', href: '#contact' },
@@ -84,7 +84,7 @@ export const ES: SiteContent = {
     label: '01 — Trabajo',
     title: 'Trabajo seleccionado',
     intro:
-      'Tres contextos distintos: un TFG que es un producto completo, un SaaS en producción y un CRM interno. Cada ficha dice qué hice y con qué.',
+      'Cinco fichas, cinco contextos: un TFG que es un producto completo, un SaaS en producción, una empresa digital con web corporativa y CRM interno, este portfolio y dos pruebas técnicas. Cada ficha dice qué hice y qué usé.',
     featuredCta: 'Leer el caso completo',
     allLabel: 'Otros trabajos',
     featured: {
@@ -115,7 +115,7 @@ export const ES: SiteContent = {
         year: '2025–2026',
         role: 'Full Stack',
         summary:
-          'Control horario empresarial. Apps iOS y Android completas, frontend web, API en Ruby on Rails y un asistente de IA que automatiza consultas dentro de la plataforma.',
+          'Control horario empresarial. Apps iOS y Android, frontend web, API en Ruby on Rails y un asistente de IA con el que puedes pedir en lenguaje natural cosas como fichar o solicitar vacaciones, sin buscar el menú.',
         stack: ['React Native', 'React', 'Rails', 'PostgreSQL'],
         links: [
           { label: 'Web', href: 'https://timeatwork.net/', external: true },
@@ -151,7 +151,7 @@ export const ES: SiteContent = {
         year: '2026',
         role: 'Diseño y desarrollo',
         summary:
-          'Angular 22 con signals, Tailwind 4, GSAP y prerender estático en Vercel. Dos idiomas, dos temas y cero cookies.',
+          'Un sitio para enseñar el trabajo y explicar las decisiones detrás de cada proyecto. Bilingüe, con tema claro y oscuro, accesible y sin cookies ni rastreadores.',
         stack: ['Angular 22', 'Tailwind 4', 'GSAP', 'Vercel'],
         links: [{ label: 'Leer el caso', href: '/proyectos/portfolio' }],
       },
@@ -184,7 +184,7 @@ export const ES: SiteContent = {
   experience: {
     label: '02 — Trayectoria',
     title: 'Dónde he trabajado',
-    intro: 'Tres etapas, tres formas de construir: producto en producción, agencia y prácticas internacionales.',
+    intro: 'Tres etapas, tres formas de construir: producto en producción, empresa digital y prácticas internacionales.',
     items: [
       {
         period: 'Jun. 2025 — Jun. 2026',
@@ -192,8 +192,8 @@ export const ES: SiteContent = {
         company: 'VoIPer Telecom',
         context: 'Presencial · Indefinido',
         bullets: [
-          'Desarrollé TAW de punta a punta: apps iOS y Android, frontend web y API REST.',
-          'Implementé el asistente de IA que automatiza consultas dentro de la plataforma.',
+          'Participé en el desarrollo de TAW: apps iOS y Android, frontend web y API REST.',
+          'Desarrollé un asistente de IA que entiende peticiones en lenguaje natural, como fichar o pedir vacaciones, y las ejecuta sin navegar por los menús.',
           'Participé en la web comercial y en las decisiones técnicas del producto.',
         ],
         stack: ['React Native', 'React', 'Ruby on Rails', 'PostgreSQL'],
@@ -204,8 +204,8 @@ export const ES: SiteContent = {
         company: 'A-Safe Digital',
         context: 'Prácticas · Málaga · Híbrido',
         bullets: [
-          'Construí la web corporativa con React, Next.js y Tailwind.',
-          'Desarrollé un CRM interno a medida y su biblioteca de componentes reutilizables.',
+          'Participé en el desarrollo de la web corporativa con React, Next.js y Tailwind.',
+          'Participé en el desarrollo de un CRM interno a medida y su biblioteca de componentes reutilizables.',
           'Colaboré en nuevas funcionalidades y en el mantenimiento de la plataforma.',
         ],
         stack: ['React', 'Next.js', 'Tailwind'],
@@ -312,7 +312,7 @@ export const ES: SiteContent = {
   contact: {
     label: '05 — Contacto',
     title: 'Hablemos',
-    text: '¿Tienes un proyecto, una vacante o una duda? Escríbeme y te respondo en 24–48 horas.',
+    text: '¿Tienes una vacante o alguna duda sobre mi trabajo? Escríbeme y te respondo en 24–48 horas.',
     form: {
       name: 'Nombre',
       email: 'Email',
@@ -517,7 +517,7 @@ export const ES: SiteContent = {
       },
       kicker: 'Proyecto propio · 2026',
       title: 'Este portfolio',
-      lede: 'El sitio que estás leyendo: Angular 22 con signals, Tailwind 4, GSAP y prerender estático en Vercel. También es la excusa para demostrar Angular en algo real.',
+      lede: 'El sitio que estás leyendo, pensado para enseñar el trabajo y explicar cómo está construido. También es la excusa para demostrar Angular en algo real: contenido bilingüe, dos temas y ni una cookie.',
       facts: [
         { label: 'Rol', value: 'Diseño y desarrollo' },
         { label: 'Año', value: '2026' },

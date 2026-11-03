@@ -30,7 +30,7 @@
 | Añadidos al portfolio | Angular (proyecto propio), Flask (TFG) |
 | Idiomas | Español nativo · Inglés técnico (lectura y escritura) |
 
-**Regla de veracidad:** el CV no incluye Angular ni Flask como experiencia de empresa. En la web aparecen como **proyecto propio** y **TFG**. No se escribirán años de experiencia que no existan.
+**Regla de veracidad:** el CV no incluye Angular ni Flask como experiencia de empresa. En la web aparecen como **proyecto propio** y **TFG**. No se escribirán años de experiencia que no existan. El trabajo en empresa se describe siempre como **participación en equipo**, nunca como obra individual ni "de punta a punta".
 
 ---
 
@@ -38,8 +38,8 @@
 
 | Puesto | Empresa | Fechas | Contexto | Qué hizo |
 |---|---|---|---|---|
-| Desarrollador Full Stack | VoIPer Telecom | Jun. 2025 – Jun. 2026 | Presencial, indefinido | TAW de punta a punta: apps iOS/Android completas con React Native (TAW y Kiosko), frontend web React, API REST en Ruby on Rails con PostgreSQL, asistente de IA íntegro y participación en la web comercial. Decisiones técnicas del producto. |
-| Desarrollador Frontend | A-Safe Digital | Nov. 2023 – May. 2024 | Prácticas, Málaga, híbrido | React, Next.js y Tailwind. Primero la web corporativa; después un CRM interno a medida para la empresa, con su biblioteca de componentes y nuevas funcionalidades. |
+| Desarrollador Full Stack | VoIPer Telecom | Jun. 2025 – Jun. 2026 | Presencial, indefinido | Participación en TAW: apps iOS/Android con React Native (TAW y Kiosko), frontend web React, API REST en Ruby on Rails con PostgreSQL, asistente de IA que ejecuta peticiones en lenguaje natural (fichar, pedir vacaciones) y participación en la web comercial. Decisiones técnicas del producto. |
+| Desarrollador Frontend | A-Safe Digital | Nov. 2023 – May. 2024 | Prácticas, Málaga, híbrido | React, Next.js y Tailwind. En equipo: primero la web corporativa (tres personas); después un CRM interno a medida para la empresa, con su biblioteca de componentes y nuevas funcionalidades. |
 | Desarrollador Full Stack | Elitech Lab | Abr. 2023 – Jun. 2023 | Prácticas, Londres, teletrabajo | CodeIgniter 3 (PHP), Bootstrap, JavaScript, CSS, MySQL. Automatización de inserción y actualización de datos. |
 | Venta al público y stocks | El Corte Inglés | Veranos 2021 y 2022 | Presencial | Atención al cliente y stock. **Fuera del portfolio.** |
 
