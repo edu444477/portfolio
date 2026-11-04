@@ -9,7 +9,7 @@
 - Repo público: `https://github.com/edu444477/portfolio`.
 - Deploy en producción: `https://eduardoorellana.vercel.app` (proyecto `portfolio`, cuenta renombrada a `eduardoorellana`, plan hobby).
 - Formulario de contacto: Web3Forms desde el navegador (sin función serverless).
-- Pendiente: completar bio/web del perfil de GitHub (cosmético).
+- Perfil de GitHub `edu444477` completo: bio, web (`https://eduardoorellana.vercel.app`), ubicación `Marbella, Spain` y `hireable` activo.
 
 ## Decisiones
 - Angular standalone + signals + zoneless + `outputMode: static`.
@@ -30,8 +30,7 @@
 
 ## Próximo
 1. Probar un envío real desde el formulario y comprobar el correo recibido.
-2. Completar el perfil de GitHub: bio, web y ubicación (necesita el scope `user`: `gh auth refresh -h github.com -s user`).
-3. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
+2. Decidir licencia del repo de La Nueva Era y fijar los repos en el perfil.
 
 ## Hecho (30 oct 2026)
 - Formulario migrado a Web3Forms desde el navegador (la función `/api/contact` se eliminó): probado en producción con un navegador real y respuesta 200. Cloudflare bloquea los envíos de navegadores headless con un reto, así que las pruebas E2E no deben enviar el formulario.
