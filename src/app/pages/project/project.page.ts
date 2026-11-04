@@ -30,4 +30,23 @@ export class ProjectPage {
   constructor() {
     this.seo.apply(this.project().seo, this.content().locale);
   }
+
+  scrollTo(id: string, event: Event): void {
+    event.preventDefault();
+
+    const target = document.getElementById(id);
+    if (!target) {
+      return;
+    }
+
+    const header = document.querySelector('header');
+    const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto'
+      : 'smooth';
+
+    window.scrollTo({ top, behavior });
+    history.replaceState(null, '', `${location.pathname}${location.search}#${id}`);
+  }
 }

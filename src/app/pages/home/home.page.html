@@ -124,7 +124,7 @@
     </div>
   </article>
 
-  <div class="mt-16 flex items-baseline justify-between gap-4 border-t border-line pt-6">
+  <div class="mt-16 flex items-baseline justify-between gap-4">
     <h3 class="label">{{ content().work.allLabel }}</h3>
     <span class="label">04</span>
   </div>
@@ -253,17 +253,18 @@
         </div>
       </div>
 
-      <figure class="relative">
-        <div class="absolute -left-3 -top-3 h-full w-full border border-line" aria-hidden="true"></div>
-        <img
-          src="/images/eduardo.webp"
-          [alt]="content().about.photoAlt"
-          width="800"
-          height="1000"
-          loading="lazy"
-          decoding="async"
-          class="relative aspect-[4/5] w-full object-cover"
-        />
+      <figure>
+        <div class="border border-line bg-surface p-2">
+          <img
+            src="/images/eduardo.webp"
+            [alt]="content().about.photoAlt"
+            width="800"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/5] w-full object-cover"
+          />
+        </div>
         <figcaption class="label mt-3 flex items-center justify-between">
           <span>Marbella · 2026</span>
           <span class="text-accent-text">ES</span>
@@ -377,7 +378,7 @@
         {{ status() === 'sending' ? content().contact.form.sending : content().contact.form.submit }}
       </button>
 
-      <p aria-live="polite" class="mt-4 min-h-5 text-sm">
+      <p aria-live="polite" class="text-sm" [class.mt-4]="status() === 'success' || status() === 'error'">
         @if (status() === 'success') {
           <span class="text-accent-text">{{ content().contact.form.success }}</span>
         } @else if (status() === 'error') {

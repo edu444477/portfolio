@@ -56,7 +56,8 @@
           @for (section of project().sections; track section.id) {
             <li>
               <a
-                [href]="'#' + section.id"
+                [attr.href]="project().seo.path + '#' + section.id"
+                (click)="scrollTo(section.id, $event)"
                 class="group flex items-baseline gap-3 text-sm text-muted transition-colors hover:text-ink"
               >
                 <span class="font-mono text-[10px] text-muted">{{ section.index }}</span>
