@@ -37,3 +37,7 @@
 - CV público regenerado sin teléfono con `scripts/cv/rebuild-cv.py`; misma ruta de descarga.
 - `LaNuevaEra-Flask-React-App`: secretos movidos a variables de entorno, `.gitignore`, `requirements.txt`, `.env.example`, README corregido (URL de clonado y APK) y 54 archivos generados fuera del control de versiones.
 - Perfil `edu444477`: README reescrito con proyectos, experiencia y stack; topics añadidos al repo de La Nueva Era.
+
+## Hecho (5 nov 2026)
+- Escala tipográfica de títulos reducida ~25 %: hero 200→144 px, caso de estudio 136→104, secciones 60→48.
+- Hero a `100svh` exacto con `.hero`, `.hero-inner` y `.hero-name` en `src/styles.css`; en pantallas de menos de 820 px de alto se compacta para no obligar a hacer scroll. La ficha técnica se oculta en móvil para que el hero quepa en una pantalla.

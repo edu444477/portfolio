@@ -1,23 +1,25 @@
 <section
-  class="relative overflow-hidden border-b border-line pt-28 md:pt-36"
+  class="hero relative overflow-hidden border-b border-line"
   (mousemove)="onPointerMove($event)"
 >
   <div class="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
   <div class="pointer-events-none absolute inset-0 spotlight" aria-hidden="true"></div>
 
-  <div class="shell relative pb-14 md:pb-20">
+  <div class="shell hero-inner relative">
     <div class="hero-fade flex items-center gap-4">
       <span class="h-px w-10 bg-accent" aria-hidden="true"></span>
       <span class="label">{{ content().hero.eyebrow }}</span>
     </div>
 
-    <h1 class="display display-tight mt-8 text-[clamp(3.25rem,13vw,9rem)]">
+    <h1 class="display display-tight hero-name mt-8">
       @for (line of content().hero.name; track line; let i = $index) {
         <span class="block pb-[0.06em]">
           <span class="hero-line block" [class.text-muted]="i === 1">{{ line }}</span>
         </span>
       }
     </h1>
+
+    <div class="flex-1" aria-hidden="true"></div>
 
     <div class="mt-10 grid gap-10 border-t border-line pt-8 md:grid-cols-[1fr_20rem] md:gap-16">
       <div>
@@ -48,7 +50,7 @@
         </div>
       </div>
 
-      <aside class="hero-fade sheet p-5">
+      <aside class="hero-fade sheet hidden p-5 md:block">
         <div class="flex items-center justify-between gap-3">
           <span class="label">{{ content().hero.specTitle }}</span>
           <span class="label flex items-center gap-2">

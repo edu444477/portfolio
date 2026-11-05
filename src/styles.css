@@ -189,6 +189,50 @@
     border-top: 1px solid var(--line);
   }
 
+  .hero {
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    padding-top: 7rem;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(3.25rem, 13vw, 9rem);
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      padding-top: 9rem;
+    }
+
+    .hero-inner {
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (max-height: 820px) {
+    .hero {
+      padding-top: 5.25rem;
+    }
+
+    .hero-inner {
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: 48rem) and (max-height: 820px) {
+    .hero-name {
+      font-size: clamp(3rem, 14vh, 8rem);
+    }
+  }
+
   .grid-bg {
     background-image:
       linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
