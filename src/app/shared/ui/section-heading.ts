@@ -5,7 +5,7 @@ import { Component, input } from '@angular/core';
   template: `
     <div>
       <span class="label">{{ label() }}</span>
-      <h2 class="display mt-4 text-4xl md:text-6xl">{{ title() }}</h2>
+      <h2 class="display mt-4 text-3xl md:text-5xl">{{ title() }}</h2>
       @if (intro()) {
         <p class="mt-5 max-w-2xl text-base text-muted md:text-lg">{{ intro() }}</p>
       }

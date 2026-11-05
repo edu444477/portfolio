@@ -11,7 +11,7 @@
       <span class="label">{{ content().hero.eyebrow }}</span>
     </div>
 
-    <h1 class="display display-tight mt-8 text-[clamp(4.25rem,17vw,12.5rem)]">
+    <h1 class="display display-tight mt-8 text-[clamp(3.25rem,13vw,9rem)]">
       @for (line of content().hero.name; track line; let i = $index) {
         <span class="block pb-[0.06em]">
           <span class="hero-line block" [class.text-muted]="i === 1">{{ line }}</span>
@@ -83,7 +83,7 @@
         <span class="label">{{ content().work.featured.index }} / 05</span>
       </div>
 
-      <h3 class="display mt-8 text-5xl md:text-7xl">{{ content().work.featured.title }}</h3>
+      <h3 class="display mt-8 text-4xl md:text-6xl">{{ content().work.featured.title }}</h3>
       <p class="mt-5 max-w-lg leading-relaxed text-muted">
         {{ content().work.featured.summary }}
       </p>
